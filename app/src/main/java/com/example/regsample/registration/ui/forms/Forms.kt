@@ -26,7 +26,7 @@ fun FirstLastNameForm(form: FirstLastNameForm, next: @Composable () -> Unit) {
     Column {
         FormField(onSubmit = { form.submitFirstName(it) }, hint = "First name")
         Spacer(modifier = Modifier.height(8.dp))
-        FormField(onSubmit = { form.submitFirstName(it) }, hint = "Last name")
+        FormField(onSubmit = { form.submitLastName(it) }, hint = "Last name")
         Spacer(modifier = Modifier.height(8.dp))
         next()
     }
@@ -75,9 +75,9 @@ private fun FormField(onSubmit: (String) -> Either<InvalidFieldError, Unit>, hin
             fieldError.value = onSubmit(it).leftOrNull()?.message
             fieldValue.value = it
         },
-        isError = fieldError.value == null,
+        isError = fieldError.value != null,
         supportingText = {
-            if (fieldError.value == null) {
+            if (fieldError.value != null) {
                 Text(text = fieldError.value ?: "")
             } else {
                 Text(text = hint)

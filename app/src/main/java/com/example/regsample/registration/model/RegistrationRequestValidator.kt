@@ -21,7 +21,7 @@ class RegistrationRequestValidator {
 
     fun validateEmail(email: String?): Either<InvalidFieldError, Unit> = either {
         ensure(email?.isNotEmpty() == true) { InvalidFieldError("Email cannot be empty") }
-        ensure(Patterns.EMAIL_ADDRESS.matcher(email.orEmpty()).matches().not()) {
+        ensure(Patterns.EMAIL_ADDRESS.matcher(email.orEmpty()).matches()) {
             InvalidFieldError(
                 "Invalid email format"
             )

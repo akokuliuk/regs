@@ -32,48 +32,48 @@ data class RegistrationRequest(
 
         fun withFirstName(firstName: String?): Either<InvalidFieldError, ValidatedBuilder> =
             either {
-                validator.validateFirstName(firstName).bind()
                 this@ValidatedBuilder.firstName = firstName
+                validator.validateFirstName(firstName).bind()
                 this@ValidatedBuilder
             }
 
         fun withLastName(lastName: String?): Either<InvalidFieldError, ValidatedBuilder> = either {
+            this@ValidatedBuilder.lastName = lastName
             validator.validateLastName(lastName).bind()
-            this@ValidatedBuilder.lastName = firstName
             this@ValidatedBuilder
         }
 
         fun withEmail(email: String?): Either<InvalidFieldError, ValidatedBuilder> = either {
-            validator.validateEmail(email).bind()
             this@ValidatedBuilder.email = email
+            validator.validateEmail(email).bind()
             this@ValidatedBuilder
         }
 
         fun withEmailCopy(emailCopy: String?): Either<InvalidFieldError, ValidatedBuilder> =
             either {
-                validator.validateEmailCopy(emailCopy, email).bind()
                 this@ValidatedBuilder.emailCopy = emailCopy
+                validator.validateEmailCopy(emailCopy, email).bind()
                 this@ValidatedBuilder
             }
 
         fun withOptional0(optional0: String?): Either<InvalidFieldError, ValidatedBuilder> =
             either {
-                validator.validateOptional0(optional0).bind()
                 this@ValidatedBuilder.optional0 = optional0
+                validator.validateOptional0(optional0).bind()
                 this@ValidatedBuilder
             }
 
         fun withOptional1(optional1: String?): Either<InvalidFieldError, ValidatedBuilder> =
             either {
-                validator.validateOptional1(optional1).bind()
                 this@ValidatedBuilder.optional1 = optional1
+                validator.validateOptional1(optional1).bind()
                 this@ValidatedBuilder
             }
 
         fun withOptional2(optional2: String?): Either<InvalidFieldError, ValidatedBuilder> =
             either {
-                validator.validateOptional2(optional2).bind()
                 this@ValidatedBuilder.optional2 = optional2
+                validator.validateOptional2(optional2).bind()
                 this@ValidatedBuilder
             }
 
