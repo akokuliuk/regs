@@ -36,13 +36,13 @@ class RegistrationRequestValidator {
 
     fun validateOptional0(optional0: String?): Either<InvalidFieldError, Unit> = either {
         ensure(optional0.orEmpty().length >= 20) {
-            InvalidFieldError("Optional0 must contain >1 symbols")
+            InvalidFieldError("Optional0 must contain >= 20 symbols")
         }
     }
 
     fun validateOptional1(optional1: String?): Either<InvalidFieldError, Unit> = either {
         ensure(optional1.orEmpty().length >= 20) {
-            InvalidFieldError("Optional1 must contain >1 symbols")
+            InvalidFieldError("Optional1 must contain >= 20 symbols")
         }
     }
 
